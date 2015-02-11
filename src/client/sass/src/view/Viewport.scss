@@ -1,13 +1,5 @@
 @import '_tei-html';
 
-// TODO noch überall bei den tei-dingen das präfix tei- ergänzen!
-
-// TODO noch schreiben no-icon, no-padding
-
-// TODO sehen: wie hängt des mit den runden ecken usw der panels zusammen
-//-- geht jetzt im popup-grid nicht mehr!?!?
-
-
 /* Toolbar */
 .header-toolbar {
   background: $base-color !important;
@@ -39,19 +31,6 @@
 .zencon-search {
   margin-left:0;margin-right:1px;
 }
-
-//.zencon-question-sign {
-//  margin-left:3px;margin-right:1px;
-//}
-//
-//.zencon-question-sign:before {
-//  color: $zen-light-text-color;
-//  font-size: 16px;
-//}
-
-
-
-
 
 .header-toolbar .adjust {
   color: $zen-light-text-color;

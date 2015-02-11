@@ -26,7 +26,6 @@ declare function admin:loginScreen() as element() {
 
 				<div class="panel">
 				<p>Einloggen zum Strauss-Dokumentenserver</p>
-				<!--<form action="{session:encode-url(request:get-uri())}" method="post">-->
 				<form action="/index.xql" method="post">
 					<table class="login" cellpadding="5">
 						<tr>
@@ -72,9 +71,7 @@ declare function admin:extJS() as element() {
 		<head>
 			<meta charset="UTF-8"/>
 			<title>RSW</title>
-			<!--<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>-->
-			<!--<link rel="stylesheet" type="text/css" href="resources/iconfont/style.css"/>-->
-			
+
 			<script type="text/javascript" src="prefs.js"></script>
 			
 			<script type="text/javascript" src="resources/bower_components/jquery/dist/jquery.min.js"></script>
@@ -123,18 +120,19 @@ let $isLoggedIn :=
     (: is this a login attempt? :)
     if ($userParam and not(empty($passwdParam))) then
     (
-      if ($userParam = ("", "guest")) then false() (: prevent the guest user from accessing the admin webapp :)
+      if ($userParam = ("", "guest")) then false()
+      (: prevent the guest user from accessing the admin webapp :)
       else
       (
         (: try and log the user in :)
-   
    			(:let $s := session:create()
         let $su := session:set-current-user($userParam, $passwdParam):)
         xdb:login( "/", $userParam, $passwdParam, true() )
         
       )
     )
-    else false() (: prevent the guest user from accessing the admin webapp :)
+    else false()
+    (: prevent the guest user from accessing the admin webapp :)
   )
   else
   (
@@ -163,11 +161,6 @@ let $serviceMode :=
 		</head>
 		<body>
 			<h1>Außer Betrieb</h1>
-			<br/>
-			<p>Die Seite ist heute wegen der Migration auf den Uni-Server nicht zugänglich.</p>
-			<p></p>
-			<p>Rückfragen an alexander erhard @ lmu de oder telefonisch</p>
-			<p></p>
 		</body>
 	</html>
 

@@ -60,7 +60,7 @@ Ext.define("Zen.view.component.SearchFieldPane", {
     },
 
     setRightComponent: function (xtype) {
-        var me = this, valueField, cfg;
+        var me = this, valueField;
         Ext.suspendLayouts();
         window.m = me;
         valueField = me.down('#valueField');

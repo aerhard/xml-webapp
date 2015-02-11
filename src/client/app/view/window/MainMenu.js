@@ -100,15 +100,10 @@ Ext.define('Zen.view.window.MainMenu', {
                         handler: function () {
                             window.open(G.getPref('bugTrackerPath'));
                         }
-                        // }, '-', {
-                        // text : 'Impressum / About',
-                        // handler : function() {
-                        // Ext.MessageBox.alert('TODO');
-                        // }
                     }
                 ]
             }
-        }
+        };
     },
 
     /**

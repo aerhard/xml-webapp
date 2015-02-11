@@ -1,33 +1,19 @@
 
-/*
-#AEE4E5  #528AC7 #E8F7F7  #E8F0F7
-*/
-
-// TODO von den theme-spezifikationen abhängig machen;
-
-//generell: theme-dinge von mir hierher kopieren??
-
-// TODO dann später auch noch alle colors klein schreiben!
-
 $zen-content-font-family: "LinLibertine", Times, serif;
 
-
 $zen-default-border-color:#F1F5F9;
-
 
 $zen-light-text-color: #ffffff;
 $zen-light-background-color: #ffffff;
 
-
 $font-family: "Arial", helvetica, arial, verdana, sans-serif !default;
 $font-size: 12px !default;
 
-
-/* BASE COLOR */
+// BASE COLOR
 $base-color : #3d7daa;
-/*#6A9BBD*/
+//#6A9BBD
 
-// $base-color: #192640 !default;
+//$base-color: #192640 !default;
 
 //$base-color: #24375c !default;
 //$base-color: #273c65 !default;
@@ -35,25 +21,13 @@ $base-color : #3d7daa;
 
 //$base-color: #37739e !default;
 
-
-
-
-/* wie im neptune theme: */
 $base-light-color: mix(#fff, $base-color, 65%) !default;
-
-
-
-
 
 $zen-neutral-color : #999999;
 $zen-neutral-color-dark : #666666;
 $zen-neutral-color-light: #C0C0C0;
 
-
-//$zen-link-color: #2B5877;
-
 $zen-link-color: mix(#000, $base-color, 20%) !default;
-
 
 $zen-linebreak-color: $zen-neutral-color-dark;
 
@@ -67,43 +41,41 @@ $zen-north-pane-border-color:#ddd;
 $zen-image-background : #333;
 $zen-image-viewer-background-color:#eee;
 
-
-
 $zen-metadata-header-color: $zen-light-text-color;
-
-
-
-
-
-
 
 // THEME COLOR EXPORTS:
 
-
-
-
-
 $al-small-padding: 3px !default;
-
-//$grid-row-cell-line-height: round ( $font-size * 1.6 );
 
 $base-highlight-color: mix(#fff, $base-color, 20%) !default;
 $base-dark-color: mix(#000, $base-color, 24%) !default;
 
-
-
-
 $panel-body-background-color: #ffffff;
 $border-layout-ct-background-color : #ffffff;
-//$tabbar-strip-background-color : #ffffff;
-
-
 
 $main-title-color: $base-light-color;
 
-// TODO sehen: braucht man das überhaupt
 $zen-north-pane-background-color:$zen-default-border-color;
 
-
-//$main-menu-background-color:$zen-default-border-color;
 $main-menu-background-color:$base-color;
+
+
+// panel/table.scss
+$grid-row-cell-line-height: round($font-size * 1.4) !default;
+
+// button/Button.scss
+$button-small-font-size: 11px !default;
+$button-small-font-weight: bold !default;
+
+$button-small-padding: $al-small-padding !default;
+
+
+$button-default-base-color: $base-highlight-color !default;
+
+$button-toolbar-border-color: $base-dark-color !default;
+
+$button-toolbar-background-color: $base-highlight-color !default;
+$button-toolbar-background-color-over: mix(#000, $button-default-base-color, 8%) !default;
+$button-toolbar-background-color-pressed: mix(#000, $button-default-base-color, 25%) !default;
+
+$button-toolbar-color: #fff !default;

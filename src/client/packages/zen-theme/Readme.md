@@ -1,2 +1,0 @@
-# zen-theme - Read Me
-

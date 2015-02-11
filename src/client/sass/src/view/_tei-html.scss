@@ -1,5 +1,4 @@
 
-// todo sehen: braucht man das überhaupt noch?? es gibt doch fn_mark?
 .footnotes {
   font-size: 0.825em;
   padding-top: 1.5em;
@@ -99,7 +98,6 @@
   display: block;
 }
 
-// TODO mit <sup>-Spezifikation vereinen?
 .tei-rend-sup, .fn-mark {
   position: relative;
   font-size: 0.7em;
@@ -249,7 +247,6 @@ p.pmod:after, p.pmodcenter:after, p.pmodleft:after, p.pmodright:after, p.pmodind
   margin-left: 1.5em;
 }
 
-// TODO evtl. noch von Kontext abhängig machen!?
 .opener {
   margin-bottom: 1em
 }

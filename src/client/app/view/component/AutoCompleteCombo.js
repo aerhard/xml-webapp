@@ -27,7 +27,7 @@ Ext.define('Zen.view.component.AutoCompleteCombo', {
     initComponent : function () {
         var me = this;
         me.store = Ext.create('Zen.store.component.AutoComplete');
-        me.store.getProxy().url = Zen.Global.getPath('autocomplete')
+        me.store.getProxy().url = Zen.Global.getPath('autocomplete');
         me.callParent(arguments);
     }
 }); 

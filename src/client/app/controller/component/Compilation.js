@@ -262,7 +262,7 @@ Ext.define('Zen.controller.component.Compilation', {
 
     /**
      * loads data to a tree item context menu and shows the context
-     * menu. TODO weiter ausführen
+     * menu.
      *
      * @param {Ext.view.View} view
      * @param {Ext.data.Model} record

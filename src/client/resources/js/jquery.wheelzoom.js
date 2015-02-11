@@ -173,7 +173,7 @@
 					}
 					
 					getData();
-					// Modifikation al
+					// MODIFIED
 					// updateBgStyle();
 				};
 

@@ -23,11 +23,5 @@ Ext.define('Zen.view.component.locked.DetailPane', {
     },
 
     createMenu: function () {
-        //    },
-        //
-        //    constructQuery: function (key) {
-        //        var me = this, queryPath;
-        //        queryPath = Zen.Global.getQueryPathFromKey(key);
-        //        return queryPath + '?key=' + key + '&ueb=' + me.viewMode + '&bin=bin';
     }
 });
