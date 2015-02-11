@@ -16,7 +16,7 @@
   "license": "GPLv3",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/aerhard/xml-webapp"
   },
   "dependencies": {
     "jquery": "~2.1.0",
