@@ -1,0 +1,561 @@
+@import '_tei-html';
+
+// TODO noch überall bei den tei-dingen das präfix tei- ergänzen!
+
+// TODO noch schreiben no-icon, no-padding
+
+// TODO sehen: wie hängt des mit den runden ecken usw der panels zusammen
+//-- geht jetzt im popup-grid nicht mehr!?!?
+
+
+/* Toolbar */
+.header-toolbar {
+  background: $base-color !important;
+  color: $zen-light-text-color !important;
+}
+
+// ICONS
+
+.x-btn-glyph, .x-btn-default-toolbar-small .x-btn-glyph {
+  opacity: 1!important;
+  font-size:13px!important;
+  margin:auto;
+  padding-right:1px!important;
+}
+
+.zencon-lock:before {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.zencon-question-sign:before {
+  color: $zen-light-text-color;
+  padding-left: 1px;
+  padding-right: 1px;
+  font-size: 16px;
+
+}
+
+.zencon-search {
+  margin-left:0;margin-right:1px;
+}
+
+//.zencon-question-sign {
+//  margin-left:3px;margin-right:1px;
+//}
+//
+//.zencon-question-sign:before {
+//  color: $zen-light-text-color;
+//  font-size: 16px;
+//}
+
+
+
+
+
+.header-toolbar .adjust {
+  color: $zen-light-text-color;
+}
+
+.bottom-toolbar {
+  border-top: 1px solid $zen-neutral-color-light;
+  background-color: $zen-light-background-color !important;
+}
+
+.header-details-container {
+  border-bottom: 1px solid $zen-neutral-color-light;
+  border-top: 0;
+  background-color: $zen-light-background-color;
+  margin: 0 0 0px 0px;
+  display: block;
+  padding: 4px 8px;
+}
+
+.header-details-inner {
+  overflow: hidden;
+  margin: 8px 0;
+
+}
+
+.header-details-right {
+  float: right;
+}
+
+.bottom-toolbar-text-item {
+  color: $zen-neutral-color-dark;
+}
+
+/* SearchGrid */
+
+.column-text-small {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.desc-column-title {
+  display: block;
+  font-size: smaller;
+  font-weight: bold
+}
+
+.pdf-search-match {
+  font-style: italic;
+}
+
+/* Viewport */
+
+body {
+  background: $zen-light-background-color !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.viewport-north-pane {
+  border-bottom: 1px solid $zen-north-pane-background-color;
+  background: $zen-north-pane-background-color;
+}
+
+/* MainMenu*/
+
+.main-menu {
+  background: $main-menu-background-color;
+  // 52
+  padding: 12px 0px 12px 8px;
+}
+
+.main-title {
+  color: $main-title-color;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* MainTabPanel */
+
+// TODO sehen: kann das mit dem background weg??
+.main-tabpanel {
+  padding: 12px 8px 8px 8px;
+}
+
+.main-tabpanel-body {
+  padding: 8px 0 0 0;
+}
+
+/* Image */
+
+
+.image-viewer-content {
+  height: 100%;
+  background-color: $zen-image-viewer-background-color !important;
+}
+
+.image-empty {
+  @extend .#{$prefix}grid-empty;
+  text-align: center;
+}
+
+/* SearchFieldPane */
+
+.search-field-pane {
+  padding: 4px 8px;
+}
+
+/* SearchFieldCombo */
+
+.search-field-combo {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* AbstractListDialog*/
+
+.abstract-list-dialog {
+  padding: 8px;
+
+}
+
+
+/********************/
+
+.gmaps-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.gmaps-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/********************/
+
+.hastip {
+  cursor: default;
+}
+
+a.hastip {
+	cursor: pointer;
+}
+
+.hide {
+  display: none
+}
+
+.noicon a {
+  padding-left: 8px;
+}
+
+em {
+  font-weight: bold;
+  font-style: inherit;
+}
+
+/* Extjs overrides */
+
+
+// TODO extjs overrides bei den eigentlichen klassen deklarieren, nicht hier!!!
+
+.x-tab-icon-el {
+  color: $zen-light-text-color;
+}
+
+.x-tab-active .x-tab-icon-el {
+  color: $base-color;
+}
+
+
+
+.x-grid-header-ct {
+  border-top-width: 0 !important;
+}
+
+.x-tab-bar {
+  background: $zen-light-background-color !important;
+}
+
+
+.x-btn-icon-el {
+  color: $zen-light-text-color;
+}
+
+
+.x-menu-item-icon.adjust {
+  color: black
+}
+
+.zen-grid .x-toolbar.header-toolbar {
+  padding-top: 0 !important;
+}
+
+.zen-grid .x-grid-cell-inner {
+  white-space: normal !important;
+}
+
+.zen-grid td {
+  vertical-align: top;
+}
+
+
+
+
+
+.right {
+  margin-right: 0 !important;
+}
+
+.white {
+  color: $zen-light-text-color;
+}
+
+
+.black {
+  color: black;
+}
+
+.grey {
+  color: $zen-neutral-color-dark;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+sup {
+  font-size: 0.66em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+a {
+  cursor: pointer;
+  color: $zen-link-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $base-color;
+}
+
+.icon {
+  width: 13px;
+  margin: 0 3px
+}
+
+/* Graphic / Person Detail View Image */
+
+.image-large-wrapper {
+  text-align: center;
+}
+
+.image-large {
+  max-width: 500px;
+  max-height: 400px
+}
+
+/* ************************************************************************** */
+/* DetailPane: */
+/* ************************************************************************** */
+
+.gndlinks {
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.detail-icon {
+  padding: 3px;
+  border-radius: 4px;
+  margin-right: 8px
+}
+
+.badge, .icon-badge, .external-link-badge {
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: $zen-light-text-color;
+  background-color: $zen-neutral-color;
+  font-size: 11px;
+  display: inline-block;
+  line-height: 0.9;
+  vertical-align: baseline;
+  /*white-space: nowrap;*/
+  text-align: center;
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  -ms-transition: all .15s linear;
+  -o-transition: all .15s linear;
+  transition: all .15s linear;
+}
+
+.icon-badge {
+  @extend .badge;
+  font-weight: normal;
+  padding: 4px 4px;
+  border-radius: 4px;
+}
+
+.badge:hover, .icon-badge:hover, .external-link-badge:hover, .return-button:hover {
+  background: $zen-neutral-color-dark;
+  cursor: pointer;
+}
+
+.badge-plain {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: bold;
+  color: $zen-light-text-color;
+  line-height: 0.9;
+  vertical-align: baseline;
+  text-align: center;
+  background-color: $zen-neutral-color;
+  border-radius: 8px;
+}
+
+.external-link-badge, .return-button {
+  @extend .badge;
+  padding: 6px 8px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.back-button-container {
+  border-top: 1px $zen-back-button-container-border-color solid;
+  padding: 4px;
+}
+
+.rsqv-image {
+  position: relative;
+  height: 11px;
+  top: 2px;
+}
+
+
+.nopadding .x-toolbar {
+  padding-bottom: 0 !important
+}
+
+.body-no-border {
+  border-bottom-color: $zen-light-background-color !important;
+  background: none repeat scroll 0 0 $zen-light-background-color;
+}
+
+/* TODO rename*/
+.body-grey-border {
+  border-top-color: $zen-neutral-color-light ! important;
+  border-bottom-color: $zen-neutral-color-light ! important;
+}
+
+.detail-view-header {
+  display: block;
+  font-size: 15px;
+  background-color: $zen-light-background-color;
+  padding: 1em 8px;
+  line-height: 1.6em;
+}
+
+.literature-contents-table {
+  line-height: 160%;
+  width: 100%
+}
+
+.docdate {
+  width: 100px !important;
+  display: inline;
+}
+
+/* ************************* PERSONENANSICHT ************************* */
+
+.person-details {
+  font-size: 0.85em
+}
+
+.person-details-container {
+  font-size: 13px;
+  line-height: 1.6em;
+  margin-bottom: 1em;
+}
+
+.person-events-date-column {
+  width: 80px
+}
+
+.portrait {
+  margin: 0 0px 10px 8px;
+  float: right;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.text-sub-header {
+  font-size: 1.1em;
+  margin: 1em 0 0.5em;
+  text-align: center;
+}
+
+.quote {
+  display: block;
+  padding: 0.5em 0 0.5em 1em;
+  font-size: 0.85em;
+}
+
+.quote-bibl {
+  display: block;
+  padding: 0em 0 1em 1em;
+  font-size: 0.85em;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.85em;
+  margin-bottom: 1em
+}
+
+.detail-pdf-text {
+  font-size: 1.1em;
+  line-height: 150%
+}
+
+.compilation-text {
+  padding: 2em;
+}
+
+.compilation-doc {
+  margin: 2em 0;
+  padding: 4px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #888;
+  -webkit-transition: box-shadow .15s linear;
+  -moz-transition: box-shadow .15s linear;
+  -ms-transition: box-shadow .15s linear;
+  -o-transition: box-shadow .15s linear;
+  transition: box-shadow .15s linear;
+}
+
+.compilation-doc:hover {
+  box-shadow: 0px 0px 3px $zen-neutral-color-dark;
+}
+
+.compilation-doc-inner {
+  padding: 1em
+}
+
+.empty-text {
+  height: 24px
+}
+
+/* ************************* META ************************* */
+
+.metadata, .metadata-nomargin {
+  line-height: 1.5em;
+  display: block;
+  padding: 4px 0 8px;
+}
+
+.metadata-nomargin {
+  margin-bottom: 0;
+}
+
+.metadata-header {
+  color: $zen-metadata-header-color;
+  background: none repeat scroll 0 0 $zen-metadata-header-background;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 6px 36px;
+}
+
+.metadata-body {
+  padding: 0 36px;
+}
+
+.metadata-list {
+  padding: 0 36px;
+}
+
+.metadata-ref-group {
+  padding-left: 38px;
+}
+
+.metadata-ref-group-text {
+  font-weight: bold;
+}
+
+.metadata ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.metadata-label {
+  //  color: $zen-neutral-color-dark;
+  font-style: italic;
+}
+
+.metadata-ms-identifier {
+  white-space: no-wrap;
+}

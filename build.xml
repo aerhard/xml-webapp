@@ -155,7 +155,9 @@
         <ant antfile="${srcPath}/client/build.xml" dir="${srcPath}/client">
             <target name="production"/>
             <target name="build"/>
+            <property name="build.dir" value="${build.path.client}"/>
         </ant>
+        <copy file="${srcPath}/client/index.xql" tofile="${build.path.client}/index.xql"/>
     </target>
 
     <target name="init">

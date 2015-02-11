@@ -1,0 +1,19 @@
+@mixin declare-font($font-family, $font-path, $font-filename, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-path}/#{$font-filename}.eot'),
+    url('#{$font-path}/#{$font-filename}.woff') format('woff'),
+    url('#{$font-path}/#{$font-filename}.ttf') format('truetype'),
+    url('#{$font-path}/#{$font-filename}.svg##{$font-filename}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@mixin declare-libertine($font-filename, $font-weight, $font-style) {
+  @include declare-font('LinLibertine', 'fonts/libertine', $font-filename, $font-weight, $font-style);
+}
+
+@include declare-libertine('LinLibertine', normal, normal);
+@include declare-libertine('LinLibertineI', normal, italic);
+@include declare-libertine('LinLibertineZ', bold, normal);

@@ -1,0 +1,354 @@
+
+// todo sehen: braucht man das überhaupt noch?? es gibt doch fn_mark?
+.footnotes {
+  font-size: 0.825em;
+  padding-top: 1.5em;
+  line-height: 160%;
+}
+
+.footnote_nr {
+  text-align: right;
+  vertical-align: top;
+}
+
+
+
+/* TEI HTML*/
+
+.text, .textmod, .detail-view-header, .siehe_auch {
+  font-family: $zen-content-font-family;
+}
+
+.text, .textmod, .meta {
+  line-height: 160%;
+  float: left;
+  margin: 0;
+  width: 100%;
+  background: #ffffff;
+}
+
+.text, .textmod {
+  border-top: 0;
+  padding: 2em 36px;
+  font-size: 15px;
+}
+
+
+
+.music {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.tei-table {
+  width: 100%;
+}
+
+.tei-table-head {
+  display: block;
+  font-weight: bold;
+  padding: 0;
+  text-align: left
+}
+
+.tei-row {
+  font-size: 15px;
+  line-height: 1.3em;
+}
+
+.tei-row-label {
+  font-size: 15px;
+  line-height: 1.3em;
+  font-weight: bold;
+}
+
+.tei-rend-bold {
+  font-weight: bold
+}
+
+.tei-rend-latin, .tei-rend-italic {
+  font-style: italic;
+}
+
+.tei-rend-underline {
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.tei-rend-2-underline {
+  text-decoration: none;
+  border-bottom: 3px double black;
+}
+
+.tei-rend-3-underline {
+  border-bottom: 3px double;
+  line-height: 1.05em;
+  text-decoration: underline
+}
+
+.tei-pre-printed {
+  color: #999;
+}
+
+.tei-encoding-unclear {
+  color: red
+}
+
+.tei-clearfix {
+  clear: both;
+  display: block;
+}
+
+// TODO mit <sup>-Spezifikation vereinen?
+.tei-rend-sup, .fn-mark {
+  position: relative;
+  font-size: 0.7em;
+  padding: 0 0 0 0.1em;
+  top: -0.5em
+}
+
+.fn-mark {
+  font-family: $zen-content-font-family;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.tei-rend-sub {
+  position: relative;
+  font-size: 0.7em;
+  padding: 0 0.1em 0 0;
+  top: 0.25em
+}
+
+.tei-rend-small {
+  font-size: 0.7em
+}
+
+.tei-rend-big {
+  font-size: 1.25em
+}
+
+.tei-rend-smallcaps {
+  font-variant: small-caps;
+}
+
+.tei-rend-spaced {
+  letter-spacing: 0.2em;
+  padding-left: 0.2em;
+}
+
+.tei-rend-uppercase {
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+
+.tei-date {
+  color: #2B5877;
+}
+
+.tei-seg {
+  border: 1px dotted #999;
+  padding: 4px;
+}
+
+.tei-address {
+  border: 1px dotted #999;
+  padding: 4px;
+}
+
+.tei-rule {
+  display: block;
+  width: 100%;
+}
+
+.tei-rule-center {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.tei-rule-inner {
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+
+p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.dateline {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.dateline-inner {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.text p:after {
+  color: $zen-neutral-color-dark;
+  content: " ¶";
+}
+
+p.pmod:after, p.pmodcenter:after, p.pmodleft:after, p.pmodright:after, p.pmodindent:after, p.sao:after, .closerprint p:after {
+  content: ""
+}
+
+.head-main {
+  text-align: center;
+  font-size: 1.2em; /*1.3em;*/
+  line-height: 160%
+}
+
+// TODO sehen: baucht man das noch??
+.head-sub {
+  text-align: center;
+  font-size: 1em; /*1.15em;*/
+  line-height: 160%
+}
+
+.head-main + *, .head-sub + * {
+  padding-top: 1.5em
+}
+
+.head-main + .head-sub {
+  padding-top: 0.7em
+}
+
+.head-sub + .head-sub {
+  padding-top: 0
+}
+
+.head {
+  text-align: center;
+  font-size: 1.15em;
+  line-height: 160%;
+  padding: 1em 0 0.5em
+}
+
+.pb {
+  color: $zen-neutral-color-dark;
+  text-decoration: none;
+  font-size: 0.7em;
+}
+
+.hr {
+  background-color: yellow;
+  width: 100%;
+  text-decoration: line-through;
+}
+
+.sao/*, .sac*/   {
+  text-align: left;
+  margin-left: 1.5em;
+}
+
+// TODO evtl. noch von Kontext abhängig machen!?
+.opener {
+  margin-bottom: 1em
+}
+
+.closer {
+  margin-top: 1em;
+}
+
+.closer-print {
+  text-align: left;
+  margin-left: 1.5em;
+  margin-top: 1em;
+  float: right;
+  margin-right: 2em;
+}
+
+.closer-print > .dateline {
+  margin-top: 13px;
+  margin-left: -1.5em;
+}
+
+.postscript {
+  margin-top: 1em
+}
+
+.pmod {
+  text-align: justify;
+}
+
+.pmodleft {
+  text-align: left;
+}
+
+.pmodright {
+  text-align: right;
+}
+
+.pmodcenter {
+  text-align: center;
+}
+
+.pmodindent {
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+.handshift {
+  color: $zen-neutral-color-dark;
+}
+
+.del {
+  display: inline;
+  text-decoration: line-through
+}
+
+.unclear-low {
+  background-color: $zen-unclear-low-color;
+}
+
+.add {
+  font-style: normal;
+  color: $zen-neutral-color-dark;
+}
+
+.pc {
+  background-color: lime;
+}
+
+.lb {
+  color: $zen-linebreak-color;
+  font-style: normal;
+}
+
+.lb:after {
+  display: block;
+  clear: both;
+  content: '\a'
+}
+
+.ed {
+  color: $zen-neutral-color;
+}
+
+.ed-interv {
+  border-bottom: 1px $zen-neutral-color-dark dotted;
+}
+
+.inline-list-s {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.inline-list-s:after {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 100%;
+}
+
+.item {
+  display: block;
+}
+

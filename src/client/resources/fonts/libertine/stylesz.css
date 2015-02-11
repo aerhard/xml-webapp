@@ -1,0 +1,8 @@
+
+@font-face {
+	font-family: 'LinLibertineZ';
+	src: url('LinLibertineZ.eot?') format('eot'), 
+	     url('LinLibertineZ.woff') format('woff'), 
+	     url('LinLibertineZ.ttf')  format('truetype'),
+	     url('LinLibertineZ.svg#LinLibertineZ') format('svg');
+}
