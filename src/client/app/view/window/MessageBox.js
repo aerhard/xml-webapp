@@ -28,7 +28,7 @@ Ext.define('Zen.view.window.MessageBox', {
      * Shows a short message box.
      *
      * @param {String} title The title of the message.
-     * @param {String} body The body of the message.
+     * @param {String} text The text body of the message.
      */
     shortMessage: function (title, text) {
         var me = this, m;

@@ -55,7 +55,7 @@ Ext.define('Zen.controller.tab.MainTabPanel', {
      * removed; if a detailpane is on the left of its tab container, the whole
      * container will be removed.
      *
-     * @param {String} the key to remove
+     * @param {String} key the key to remove
      */
     clearDetailViews: function (key) {
         var i, detailViews, viewKey, parent;
@@ -83,8 +83,7 @@ Ext.define('Zen.controller.tab.MainTabPanel', {
      * Refreshes all detail view panels in the currently active tab.
      */
     refreshActiveDetailViews: function () {
-        // TODO
-        var detailViews, activeTab;
+        var i, detailViews, activeTab;
         activeTab = this.getMainTabPanel().getActiveTab();
         if (activeTab) {
             detailViews = activeTab.query('detailpane');
@@ -98,6 +97,7 @@ Ext.define('Zen.controller.tab.MainTabPanel', {
      * Opens a new search tab and initializes a query on the server to match
      * documents which refer to the specified key.
      *
+     * @param {String} cat the document category which should be searched
      * @param {String} key The key to search for
      */
     openKeyRefList: function (cat, key) {

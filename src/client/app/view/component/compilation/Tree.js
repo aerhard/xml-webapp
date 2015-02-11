@@ -35,7 +35,7 @@ Ext.define('Zen.view.component.compilation.Tree', {
                 dock          : 'top',
                 defaults      : {
                     xtype    : 'tool',
-                    renderTpl: ['<span/>']
+                    renderTpl: ['<span></span>']
                 },
                 items         : [
                     {

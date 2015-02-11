@@ -65,7 +65,6 @@ Ext.define('Zen.view.component.DetailPane', {
      * Empty function
      */
     initRight: function () {
-        return;
     },
 
     initComponent: function (config) {

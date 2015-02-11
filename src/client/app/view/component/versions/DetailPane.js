@@ -15,11 +15,9 @@ Ext.define('Zen.view.component.versions.DetailPane', {
     },
 
     addCustomListeners: function () {
-        return;
     },
 
     createMenu: function () {
-        return;
     },
 
     constructQuery: function (key, rev) {

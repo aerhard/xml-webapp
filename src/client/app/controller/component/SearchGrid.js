@@ -56,7 +56,7 @@ Ext.define('Zen.controller.component.SearchGrid', {
     },
 
     assembleSearchParameters: function (grid) {
-        var parameters = {}, itemName, i, docked, formData, extendedSearch = [], topToolbar, searchScope, checked;
+        var parameters = {}, itemName, i, docked, formData, extendedSearch = [], topToolbar, searchScope, checked, checkItems;
         topToolbar = grid.getDockedComponent('toptoolbar');
         topToolbar.items.each(function (item) {
             itemName = item.name;

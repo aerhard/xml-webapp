@@ -102,6 +102,7 @@ Ext.define('Zen.view.DoublePaneFactory', {
      * @private
      * @param {String} key The key of the left pane.
      * @param {Object} options The options passed to the right pane.
+     * @param {String} rightXType the x type of the right component
      * @return {Object} The config object.
      */
     getDetailTabConfig: function (key, options, rightXType) {

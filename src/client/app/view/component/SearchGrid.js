@@ -139,7 +139,7 @@ Ext.define('Zen.view.component.SearchGrid', {
     },
 
     getColumnConfig: function (fields) {
-        var me = this, fieldNames = [], result = [], actions = [], i, j, columnConfig;
+        var me = this, fieldNames = [], result = [], actions, i, j, columnConfig;
         columnConfig = [
             ['place', 'Ort', me.colSmall],
             ['type', 'Typ', me.colType],
@@ -307,7 +307,6 @@ Ext.define('Zen.view.component.SearchGrid', {
                 check = true;
                 break;
             }
-            ;
         }
         i = checkItems.length;
         while (i--) {

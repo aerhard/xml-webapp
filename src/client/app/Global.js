@@ -53,7 +53,7 @@ Ext.define('Zen.Global', {
     jsonRequest: function (options) {
         Ext.Ajax.request({
             method : 'GET',
-            async  : (options.async === false) ? false : true,
+            async  : (options.async !== false),
             url    : options.url,
             success: function (responseObj) {
                 var response = Ext.decode(responseObj.responseText);
@@ -105,20 +105,22 @@ Ext.define('Zen.Global', {
      * @return {String} The generated ID.
      */
     generateUid: function (separator) {
-        var delim = separator || '-';
+        var delim, s4;
 
-        function S4() {
+        delim = separator || '-';
+
+        s4 = function () {
             return (Math.floor((1 + Math.random()) * 0x10000)).toString(16).substring(1);
-        }
+        };
 
-        return (delim + S4() + S4() + delim + S4() + delim + S4() + delim + S4() + delim + S4() + S4() + S4());
+        return (delim + s4() + s4() + delim + s4() + delim + s4() + delim + s4() + delim + s4() + s4() + s4());
     },
 
     /**
      * Opens a browser popup window.
      * @param {String} url The url of the popup window.
      * @param {String} windowname The title of the popup window.
-     * @return {false} This function always returns the boolean value `false` in order to stop the event when called from a DOM element.
+     * @return {Boolean} This function always returns the boolean value `false` in order to stop the event when called from a DOM element.
      */
     popup: function (url, windowname) {
         if (window.focus) {

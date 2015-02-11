@@ -78,7 +78,7 @@ Ext.define('Zen.view.component.bin.SearchGrid', {
                 xtype  : 'button',
                 action : 'search',
                 tooltip: 'Neu laden',
-                text   : '<span class="zencon-refresh"/>',
+                text   : '<span class="zencon-refresh"></span>',
                 handler: function () {
                     me.fireEvent('searchbtnclick', me);
                 }

@@ -107,7 +107,7 @@ Ext.define('Zen.view.component.Image', {
         } else {
             toolbar.add(['->', {
                 xtype  : 'button',
-                text   : '<span class="zencon-chevron-left"/>',
+                text   : '<span class="zencon-chevron-left"></span>',
                 action : 'prevpage',
                 tooltip: 'vorherige Seite'
             }, {
@@ -119,7 +119,7 @@ Ext.define('Zen.view.component.Image', {
             }, {
 
                 xtype  : 'button',
-                text   : '<span class="zencon-chevron-right"/>',
+                text   : '<span class="zencon-chevron-right"></span>',
                 action : 'nextpage',
                 tooltip: 'nächste Seite'
             }, '->']);
