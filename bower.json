@@ -1,0 +1,27 @@
+{
+  "name": "strauss-client",
+  "authors": [
+    "aerhard"
+  ],
+  "description": "Strauss database client",
+  "main": [
+    "./index.html"
+  ],
+  "keywords": [
+    "ExtJS5",
+    "database",
+    "client",
+    "JavaScript"
+  ],
+  "license": "GPLv3",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "meisnippetviewer": "git://github.com/aerhard/meisnippetviewer.git#master"
+  },
+  "version": "0.5",
+  "private": true
+}

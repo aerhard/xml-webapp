@@ -1,0 +1,11 @@
+.idea
+build.properties
+/build
+/dist
+/src/client/bootstrap.*
+/src/client/build
+/src/client/doc
+/src/client/ext
+/src/client/resources/bower_components
+/src/server
+
