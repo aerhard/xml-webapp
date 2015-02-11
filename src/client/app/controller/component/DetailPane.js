@@ -88,21 +88,22 @@ Ext.define('Zen.controller.component.DetailPane', {
         Ext.resumeLayouts(true);
     },
 
-    renderMusic: function (musicArray, panel) {
+    renderMusic : function (musicArray, panel) {
         var musicCount = 0;
         if (typeof musicArray === 'string') {
             musicArray = [musicArray];
         }
         try {
             $('#' + panel.getId() + ' .music').each(function () {
-                new MEI2VF.Viewer({
-                    xmlDoc                : musicArray[musicCount],
-                    target                : this,
-                    autoStaveConnectorLine: false,
-                    labelMode             : 'full',
-                    staff                 : {
-                        fill_style: '#000000'
-                    }
+                new MSV.Viewer({
+                    data : musicArray[musicCount],
+                    target : this,
+                    autoStaveConnectorLine : false,
+                    labelMode : 'full',
+                    staff : {
+                        fill_style : '#000000'
+                    },
+                    useMeiLib : false
                 });
 
                 musicCount += 1;

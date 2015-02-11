@@ -77,9 +77,7 @@ declare function admin:extJS() as element() {
 			<script type="text/javascript" src="resources/bower_components/jquery/dist/jquery.min.js"></script>
 			<script type="text/javascript" src="resources/js/jquery.wheelzoom.js"></script>
 			
-			<script type="text/JavaScript" src="resources/bower_components/vexflow/build/vexflow/vexflow-min.js"></script>
-			<script>Vex.Flow.STAVE_LINE_THICKNESS = 1;</script>
-			<script type="text/JavaScript" src="resources/js/meisnippetviewer.min.js"></script>
+			<script type="text/JavaScript" src="resources/bower_components/meisnippetviewer/build/meisnippetviewer.min.js"></script>
 			
 			<link rel="stylesheet" href="resources/Zen-all.css"/>
 			<script type="text/javascript" src="app.js"></script>
