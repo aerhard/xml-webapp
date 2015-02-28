@@ -11,7 +11,7 @@
     <property name="srcPath" location="src"/>
     <property name="build.path" location="build"/>
     <property name="build.path.client" location="${build.path}/client"/>
-    <property name="build.path.server" location="${build.path}/server"/>
+    <property name="build.path.exist-app" location="${build.path}/exist-app"/>
     <property name="dist.path" location="dist"/>
 
     <condition property="bower.executable" value="${bower.executable.windows}" else="bower">
@@ -20,11 +20,11 @@
 
 
     <path id="classpath.core">
-        <fileset dir="${server.dir}/lib">
+        <fileset dir="${exist-app.dir}/lib">
             <include name="**/*.jar"/>
         </fileset>
-        <pathelement path="${server.dir}/exist.jar"/>
-        <pathelement path="${server.dir}/exist-optional.jar"/>
+        <pathelement path="${exist-app.dir}/exist.jar"/>
+        <pathelement path="${exist-app.dir}/exist-optional.jar"/>
     </path>
 
     <typedef resource="org/exist/ant/antlib.xml" uri="http://exist-db.org/ant">
@@ -33,39 +33,28 @@
 
     <taskdef resource="net/sf/antcontrib/antlib.xml">
         <classpath>
-            <pathelement location="${server.dir}/tools/ant/lib/ant-contrib-1.0b3.jar"/>
+            <pathelement location="${exist-app.dir}/tools/ant/lib/ant-contrib-1.0b3.jar"/>
         </classpath>
     </taskdef>
 
 
     <!--
-        this task gets program data stored on the server; not included:
+        this task gets the eXist app's data from the exist-app; the following folders are not included:
          - data
          - systemdata
          - schema
-         - client (with the exception of client/index.xql)
+         - client
     -->
-    <target name="get-server">
-        <echo>getting base dir resources from server</echo>
+    <target name="get-exist-app">
+        <echo>getting base app dir resources from exist database</echo>
         <xmldb:extract xmlns:xmldb="http://exist-db.org/ant"
-                       uri="${server.uri}"
-                       destdir="${build.path.server}"
+                       uri="${exist-app.uri}"
+                       destdir="${build.path.exist-app}"
                        subcollections="false"
                        createdirectories="true"
                        user="${config.username}"
                        password="${config.password}"
                        overwrite="true"
-                />
-
-        <mkdir dir="${build.path.server}/client"/>
-        <echo>getting client/index.xql from server</echo>
-        <xdb:extract xmlns:xdb="http://exist-db.org/ant"
-                     uri="${server.uri}/client"
-                     resource="index.xql"
-                     destfile="${build.path.server}/client/index.xql"
-                     user="${config.username}"
-                     password="${config.password}"
-                     overwrite="true"
                 />
 
         <xdb:list xmlns:xdb="http://exist-db.org/ant"
@@ -92,7 +81,7 @@
                         <echo>Getting @{collection}</echo>
                         <xmldb:extract xmlns:xmldb="http://exist-db.org/ant"
                                        uri="${server.uri}/@{collection}"
-                                       destdir="${build.path.server}/@{collection}"
+                                       destdir="${build.path.exist-app}/@{collection}"
                                        subcollections="true"
                                        createdirectories="true"
                                        user="${config.username}"
@@ -110,20 +99,20 @@
     <target name="deploy-client" depends="clean-client,build-client">
 
         <xdb:list xmlns:xdb="http://exist-db.org/ant"
-                  uri="${server.uri}/client"
+                  uri="${exist-app.uri}/client"
                   collections="true"
                   outputproperty="collections"
                   user="${config.username}"
                   password="${config.password}"
                 />
 
-        <echo>Collections found in server client dir: ${collections}</echo>
+        <echo>Collections found in exist-app client dir: ${collections}</echo>
 
         <for list="${collections}" param="collection">
             <sequential>
-                <echo>Removing @{collection} from ${server.uri}/client</echo>
+                <echo>Removing @{collection} from ${exist-app.uri}/client</echo>
                 <xdb:remove xmlns:xdb="http://exist-db.org/ant"
-                            uri="${server.uri}/client"
+                            uri="${exist-app.uri}/client"
                             collection="@{collection}"
                             user="${config.username}"
                             password="${config.password}"
@@ -131,9 +120,9 @@
             </sequential>
         </for>
 
-        <echo>Writing client app data to server</echo>
+        <echo>Writing client app data to exist-app</echo>
         <xdb:store xmlns:xdb="http://exist-db.org/ant"
-                   uri="${server.uri}/client"
+                   uri="${exist-app.uri}/client"
                    createcollection="true"
                    createsubcollections="true"
                    user="${config.username}"
@@ -153,7 +142,7 @@
 
     <target name="dist" depends="clean,build,xar"/>
 
-    <target name="build" depends="build-client,get-server"/>
+    <target name="build" depends="build-client,get-exist-app"/>
 
     <target name="bower" depends="init">
         <description>Update javascript libraries via bower</description>
@@ -189,12 +178,12 @@
         <delete dir="${build.path.client}"/>
     </target>
 
-    <target name="clean-server" description="clean up server build">
-        <delete dir="${build.path.server}"/>
+    <target name="clean-exist-app" description="clean up exist-app build">
+        <delete dir="${build.path.exist-app}"/>
     </target>
 
 
-    <target name="clean" depends="clean-client, clean-server" description="clean up">
+    <target name="clean" depends="clean-client, clean-exist-app" description="clean up">
         <delete dir="${dist.path}"/>
     </target>
 </project>

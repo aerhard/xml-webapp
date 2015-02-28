@@ -11,6 +11,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.EventObjectImpl": "../../ext/src/EventObject.js",
   "Ext.Msg": "../../ext/src/window/MessageBox.js",
   "Ext.Supports": "../../ext/src/Support.js",
+  "Ext.cmd": "../../../../../../../bin/Sencha/Cmd/5.1.2.52/plugins/src",
   "Ext.core.DomHelper": "../../ext/src/dom/Helper.js",
   "Ext.core.DomQuery": "../../ext/src/dom/Query.js",
   "Ext.locale.de.Component": "../../ext/locale/ext-lang-de.js",

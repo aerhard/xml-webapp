@@ -7,5 +7,5 @@ build.properties
 /src/client/doc
 /src/client/ext
 /src/client/resources/bower_components
-/src/server
-
+/src/exist-app
+/tmp
