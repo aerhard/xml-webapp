@@ -4,19 +4,25 @@
 Ext.define('Zen.controller.component.DetailPane', {
     extend: 'Ext.app.Controller',
 
+
+    statusLabels: {
+        'approved' : 'fertig zur Publikation',
+        'candidate': 'Publikation anstehend',
+        'proposed' : 'Publikation vorgeschlagen',
+        'none'     : 'ohne Statusangabe'
+    },
+
     init: function () {
 
         this.control({
-            'detailpane'                    : {
-                modelload       : this.onModelLoad,
-                innerclick      : this.onInnerClick,
-                innercontextmenu: this.onInnerContextMenu
-            },
-            'detailpanecontextmenu menuitem': {
+            'detailpane'                       : {
+                modelload: this.onModelLoad, innerclick: this.onInnerClick, innercontextmenu: this.onInnerContextMenu
+            }, 'detailpanecontextmenu menuitem': {
                 click: this.onContextButton
-            },
-            'permissionsmenu menuitem'      : {
+            }, 'permissionsmenu menuitem'      : {
                 click: this.onPermissionButtonClick
+            }, 'statusmenu menuitem'           : {
+                click: this.onStatusButtonClick
             }
         });
     },
@@ -67,6 +73,14 @@ Ext.define('Zen.controller.component.DetailPane', {
 
         panel.update(data.get('body'));
 
+        /*
+         var parsedBody = $.parseHTML(data.get('body'));
+         console.log(parsedBody);
+         var musicElements = $(parsedBody[0]).find('span.music');
+         panel.update(parsedBody);
+         */
+
+
         musicArray = data.get('music');
         if (musicArray) {
             me.renderMusic(musicArray, panel);
@@ -74,21 +88,24 @@ Ext.define('Zen.controller.component.DetailPane', {
 
         permissionText = data.get('permissions') || '';
         permissionObj = (permissionText === '') ? {} : {
-            "cls" : panel.permissionBtnCls,
-            "text": permissionText
+            "cls": panel.permissionBtnCls, "text": permissionText
         };
         panel.down('label[name=permissions]').update(permissionObj);
+
+        var statusText = data.get('status');
+        var statusObj = (statusText === '') ? {} : {
+            "cls": 'badge-status ' + statusText, "text": me.statusLabels[statusText]
+        };
+        panel.down('label[name=status]').update(statusObj);
+
         panel.down('label[name=id]').update({
-            rsqv: data.get('rsqv').split('|'),
-            key : panel.key,
-            rev : data.get('rev') || null,
-            date: data.get('changed')
+            rsqv: data.get('rsqv').split('|'), key: panel.key, rev: data.get('rev') || null, date: data.get('changed')
         });
 
         Ext.resumeLayouts(true);
     },
 
-    renderMusic : function (musicArray, panel) {
+    renderMusic: function (musicArray, panel) {
         var musicCount = 0;
         if (typeof musicArray === 'string') {
             musicArray = [musicArray];
@@ -96,14 +113,14 @@ Ext.define('Zen.controller.component.DetailPane', {
         try {
             $('#' + panel.getId() + ' .music').each(function () {
                 new MSV.Viewer({
-                    data : musicArray[musicCount],
-                    target : this,
-                    autoStaveConnectorLine : false,
-                    labelMode : 'full',
-                    staff : {
-                        fill_style : '#000000'
+                    data                  : musicArray[musicCount],
+                    target                : this,
+                    autoStaveConnectorLine: false,
+                    labelMode             : 'full',
+                    staff                 : {
+                        fill_style: '#000000'
                     },
-                    useMeiLib : false
+                    useMeiLib             : false
                 });
 
                 musicCount += 1;
@@ -179,6 +196,14 @@ Ext.define('Zen.controller.component.DetailPane', {
             }
             return;
         }
+
+        if ((' ' + el.className + ' ').indexOf('badge-status ') > -1) {
+            if (cmp.key) {
+                me.showStatusMenu(cmp.key, el);
+            }
+            return;
+        }
+
         if (cmp.oldKey) {
             cmp.loadModel(cmp.oldKey);
         }
@@ -191,10 +216,26 @@ Ext.define('Zen.controller.component.DetailPane', {
         menu.showBy(el, 'bl-tl?', [0, -8]);
     },
 
+
+    showStatusMenu: function (key, el) {
+        var me = this, menu;
+        menu = Ext.widget('statusmenu', {
+            key: key, statusLabels: me.statusLabels
+        });
+        menu.showBy(el, 'bl-tl?', [0, -8]);
+    },
+
     onPermissionButtonClick: function (menuitem) {
         var menu = menuitem.up('menu');
         if (menuitem.name) {
             Zen.app.fireEvent('setpermission', menu.key, menuitem.name);
+        }
+    },
+
+    onStatusButtonClick: function (menuitem) {
+        var menu = menuitem.up('menu');
+        if (menuitem.name) {
+            Zen.app.fireEvent('setstatus', menu.key, menuitem.name);
         }
     }
 });

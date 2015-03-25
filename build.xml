@@ -96,7 +96,7 @@
 
     </target>
 
-    <target name="deploy-client" depends="clean-client,build-client">
+    <target name="deploy-client">
 
         <xdb:list xmlns:xdb="http://exist-db.org/ant"
                   uri="${exist-app.uri}/client"

@@ -14,6 +14,7 @@ Ext.define('Zen.controller.io.IO', {
             restore      : this.restore,
             scope        : this,
             setpermission: this.setPermission,
+            setstatus    : this.setStatus,
             unlock       : this.unlock
         });
     },
@@ -83,6 +84,19 @@ Ext.define('Zen.controller.io.IO', {
         if (typeof key === 'string' && typeof group === 'string') {
             Zen.Global.jsonRequest({
                 url     : Zen.Global.getPath('permissions') + key + '&group=' + group,
+                callback: function (msg) {
+                    Zen.app.fireEvent('resourcechanged', key);
+                    Zen.app.fireEvent('shortmessage', 'Geändert', msg);
+                }
+            });
+        }
+    },
+    
+    setStatus: function (key, status) {
+    		console.log(arguments);
+        if (typeof key === 'string' && typeof status === 'string') {
+            Zen.Global.jsonRequest({
+                url     : Zen.Global.getPath('status') + key + '&status=' + status,
                 callback: function (msg) {
                     Zen.app.fireEvent('resourcechanged', key);
                     Zen.app.fireEvent('shortmessage', 'Geändert', msg);

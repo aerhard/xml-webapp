@@ -342,7 +342,7 @@ a:hover {
   cursor: pointer;
 }
 
-.badge-plain {
+.badge-plain, .badge-status {
   display: inline-block;
   padding: 2px 6px;
   font-size: 11px;
@@ -353,6 +353,23 @@ a:hover {
   text-align: center;
   background-color: $zen-neutral-color;
   border-radius: 8px;
+}
+
+.badge-status.approved {
+	background: navy;
+}
+
+.badge-status.candidate {
+	background: green;
+}
+
+.badge-status.proposed {
+	background: greenyellow;
+}
+
+.badge-status:hover {
+	cursor: pointer;
+	opacity: 0.5;
 }
 
 .external-link-badge, .return-button {

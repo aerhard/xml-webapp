@@ -14,6 +14,10 @@ Ext.define('Zen.model.component.DetailPane', {
             type: 'string'
         },
         {
+            name: 'status',
+            type: 'string'
+        },
+        {
             name: 'rev',
             type: 'string'
         },

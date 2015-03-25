@@ -158,6 +158,12 @@ Ext.define('Zen.view.component.DetailPane', {
                         tpl  : '<span class="{cls}" data-qtip="Sichtbarkeit des Dokuments">{text}</span>'
                     },
                     {
+                        xtype: 'label',
+                        cls  : 'bottom-toolbar-text-item',
+                        name : 'status',
+                        tpl  : '<span class="{cls}" data-qtip="Publikationsstatus des Dokuments">{text}</span>'
+                    },
+                    {
                         xtype: 'tbfill'
                     },
                     {
@@ -351,7 +357,7 @@ Ext.define('Zen.view.component.DetailPane', {
         me.mon(me.el, 'click', function (e, el, eOpts) {
             me.fireEvent('innerclick', me, e, el, eOpts);
         }, me, {
-            delegate: ':any(.badge|.compilation-doc|.img-link|.return-button)'
+            delegate: ':any(.badge|.badge-status|.compilation-doc|.img-link|.return-button)'
         });
 
         me.mon(me.el, 'contextmenu', function (e, el, eOpts) {

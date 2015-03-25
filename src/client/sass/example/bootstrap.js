@@ -6,14 +6,7 @@
  */
 Ext.Loader.addClassPathMappings({
   "Ext": "../../ext/src",
-  "Ext.DomHelper": "../../ext/src/dom/Helper.js",
-  "Ext.DomQuery": "../../ext/src/dom/Query.js",
-  "Ext.EventObjectImpl": "../../ext/src/EventObject.js",
   "Ext.Msg": "../../ext/src/window/MessageBox.js",
-  "Ext.Supports": "../../ext/src/Support.js",
-  "Ext.cmd": "../../../../../../../bin/Sencha/Cmd/5.1.2.52/plugins/src",
-  "Ext.core.DomHelper": "../../ext/src/dom/Helper.js",
-  "Ext.core.DomQuery": "../../ext/src/dom/Query.js",
   "Ext.locale.de.Component": "../../ext/locale/ext-lang-de.js",
   "Ext.locale.de.LoadMask": "../../ext/locale/ext-lang-de.js",
   "Ext.locale.de.form.Basic": "../../ext/locale/ext-lang-de.js",
@@ -953,6 +946,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Zen.view.component.SearchFieldPane": [],
   "Zen.view.component.SearchGrid": [],
   "Zen.view.component.SearchGridContextMenu": [],
+  "Zen.view.component.StatusMenu": [],
   "Zen.view.component.bin.DetailPane": [],
   "Zen.view.component.bin.SearchGrid": [],
   "Zen.view.component.compilation.CitContextMenu": [],
@@ -2094,6 +2088,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Zen.view.component.SearchGridContextMenu": [
     "widget.searchgridcontextmenu"
   ],
+  "Zen.view.component.StatusMenu": [
+    "widget.statusmenu"
+  ],
   "Zen.view.component.bin.DetailPane": [
     "widget.bin-detailpane"
   ],
@@ -2162,18 +2159,18 @@ Ext.setVersion("ext-theme-base", "4.2.1");
 Ext.setVersion("ext-theme-neptune", "4.2.1");
 Ext.setVersion("ext-theme-neutral", "4.2.1");
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/Component.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Toolbar.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Paging.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/layout/component/Dock.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Panel.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/form/field/HtmlEditor.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/container/ButtonGroup.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/picker/Month.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Table.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/form/field/HtmlEditor.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/grid/RowEditor.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/grid/column/RowNumberer.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/resizer/Splitter.js");;
-Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/menu/Separator.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/layout/component/Dock.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/menu/Menu.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/menu/Separator.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Panel.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Table.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Tool.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/picker/Month.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/resizer/Splitter.js");;
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/tab/Tab.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Paging.js");;
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Toolbar.js");;
