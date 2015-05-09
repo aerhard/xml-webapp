@@ -57,7 +57,12 @@ Ext.define('Zen.controller.component.DetailPane', {
             return;
         }
         Ext.suspendLayouts();
-        panel.body.scrollTo('top', 0);
+
+        if (panel.currentKey !== panel.key) {
+            panel.body.scrollTo('top', 0);
+        }
+        panel.currentKey = panel.key;
+
         header = data.get('header');
 
         titleText = data.get('shorttitle');
@@ -99,7 +104,7 @@ Ext.define('Zen.controller.component.DetailPane', {
         panel.down('label[name=status]').update(statusObj);
 
         panel.down('label[name=id]').update({
-            rsqv: data.get('rsqv').split('|'), key: panel.key, rev: data.get('rev') || null, date: data.get('changed')
+            identifiers: data.get('identifiers'), key: panel.key, rev: data.get('rev') || null, date: data.get('changed')
         });
 
         Ext.resumeLayouts(true);
@@ -132,7 +137,7 @@ Ext.define('Zen.controller.component.DetailPane', {
     },
 
     getReturnButton: function () {
-        return '<span class="return-button">Zurück</span>';
+        return '<span class="return-button">Zur&uuml;ck</span>';
     },
 
     onInnerContextMenu: function (cmp, e, el) {

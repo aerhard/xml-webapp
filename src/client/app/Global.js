@@ -79,7 +79,7 @@ Ext.define('Zen.Global', {
         viewer = this.getUIPref('initialViewerMap')[key.substring(0, 1)];
         path = me.getPath('view') + viewer;
         if (!path) {
-            Ext.MessageBox.alert('Systemfehler', 'Für den Schlüssel "' + key + '" ist kein Anfragepfad definiert.');
+            Ext.MessageBox.alert('Systemfehler', 'F&uuml;r den Schl&uuml;ssel "' + key + '" ist kein Anfragepfad definiert.');
         }
         return path;
     },
@@ -118,7 +118,7 @@ Ext.define('Zen.Global', {
 
     /**
      * Opens a browser popup window.
-     * @param {String} url The url of the popup window.
+     * @param {String} url The url of the popup window or a DOM element whose href attribute provides the url.
      * @param {String} windowname The title of the popup window.
      * @return {Boolean} This function always returns the boolean value `false` in order to stop the event when called from a DOM element.
      */

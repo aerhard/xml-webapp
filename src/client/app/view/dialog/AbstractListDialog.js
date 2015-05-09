@@ -35,7 +35,7 @@ Ext.define('Zen.view.dialog.AbstractListDialog', {
 
     buttons: [
         {
-            text   : 'Schließen',
+            text   : 'Schlie&szlig;en',
             handler: function (cmp) {
                 cmp.up('window').close();
             }

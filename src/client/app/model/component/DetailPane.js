@@ -26,8 +26,8 @@ Ext.define('Zen.model.component.DetailPane', {
             type: 'string'
         },
         {
-            name: 'rsqv',
-            type: 'string'
+            name: 'identifiers',
+            type: 'array'
         },
         {
             name: 'header',

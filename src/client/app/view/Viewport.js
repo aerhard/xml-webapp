@@ -2,11 +2,12 @@
  * The viewport of the application.
  */
 Ext.define('Zen.view.Viewport', {
-    extend  : 'Ext.container.Viewport',
-    requires: ['Ext.layout.container.Border'],
+    extend: 'Ext.container.Viewport', requires: [
+        'Ext.layout.container.Border',
+        'Zen.view.window.SidePanel'
+    ],
 
-    xtype : 'app-main',
-    layout: {
+    xtype: 'app-main', layout: {
         type: 'border'
     },
 
@@ -30,22 +31,17 @@ Ext.define('Zen.view.Viewport', {
     initComponent: function () {
         var me = this;
         me.msgBox = Ext.widget('msgbox');
-        me.items = [
-            {
-                region     : 'north',
-                baseCls    : 'viewport-north-pane',
-                dockedItems: [
-                    {
-                        xtype: 'mainmenu',
-                        dock : 'top'
-                    }
-                ]
-            },
-            {
-                xtype : 'maintabpanel',
-                region: 'center'
-            }
-        ];
+        me.items = [{
+            region: 'north', baseCls: 'viewport-north-pane', dockedItems: [{
+                xtype: 'mainmenu', dock: 'top'
+            }]
+        }, {
+            xtype: 'maintabpanel', region: 'center'
+        }, {
+            xtype: 'sidepanel',
+            region:'west',
+            collapsible:true
+        }];
         me.callParent(arguments);
     }
 });

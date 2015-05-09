@@ -80,7 +80,7 @@ Ext.define('Zen.controller.component.Compilation', {
             Zen.Global.jsonRequest({
                 url     : Zen.Global.getPath('compilationadd') + key,
                 callback: function (msg) {
-                    Zen.app.fireEvent('shortmessage', 'Eingefügt', msg);
+                    Zen.app.fireEvent('shortmessage', 'Eingef&uuml;gt', msg);
                     parentCmp.fireEvent('updatekey', parentCmp, key);
                 }
             });
@@ -191,7 +191,7 @@ Ext.define('Zen.controller.component.Compilation', {
         record = treePanel.getSelectionModel().getLastSelected() || null;
         if (record !== null) {
             descText = record.get('text');
-            Ext.MessageBox.confirm('Löschen', 'Soll der Eintrag "' + descText + '" entfernt werden?', function (btn) {
+            Ext.MessageBox.confirm('L&ouml;schen', 'Soll der Eintrag "' + descText + '" entfernt werden?', function (btn) {
                 if (btn === 'yes') {
                     record.remove();
                     treePanel.store.sync();
@@ -212,7 +212,7 @@ Ext.define('Zen.controller.component.Compilation', {
         record = treePanel.getSelectionModel().getLastSelected() || null;
         if (record !== null) {
             descText = record.get('text');
-            Ext.MessageBox.confirm('Löschen', 'Soll das Dokument "' + descText +
+            Ext.MessageBox.confirm('L&ouml;schen', 'Soll das Dokument "' + descText +
                                               '" in den Papierkorb verschoben werden?', function (btn) {
                 if (btn === 'yes') {
                     record.remove();

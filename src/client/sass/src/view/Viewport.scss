@@ -355,7 +355,7 @@ a:hover {
   border-radius: 8px;
 }
 
-.badge-status.approved {
+.badge-status.approved, .badge-status.approved {
 	background: navy;
 }
 
@@ -372,6 +372,11 @@ a:hover {
 	opacity: 0.5;
 }
 
+.badge-status.nopointer:hover {
+  cursor:inherit;
+  opacity:inherit;
+}
+
 .external-link-badge, .return-button {
   @extend .badge;
   padding: 6px 8px;
@@ -384,11 +389,59 @@ a:hover {
   padding: 4px;
 }
 
-.rsqv-image {
-  position: relative;
-  height: 11px;
-  top: 2px;
+//.rsqv-image {
+//  position: relative;
+//  height: 11px;
+//  top: 2px;
+//}
+
+@mixin image () {
+  background-position:center;
+  margin-left:2px;
 }
+
+.image-rsqv {
+  background:url(../resources/img/rsqv.gif);
+  @include image();
+}
+
+.image-viaf {
+  background:url(../resources/img/viaf.png);
+  @include image();
+}
+
+.image-gnd {
+  background:url(../resources/img/dnb.png);
+  @include image();
+}
+
+.image-geonames {
+  background:url(../resources/img/earth_icon.jpg);
+  @include image();
+}
+
+.image-getty {
+  background:url(../resources/img/getty.png);
+  @include image();
+}
+
+.image-rism {
+  background:url(../resources/img/rism.png);
+  @include image();
+}
+
+.image-oclc {
+  background:url(../resources/img/oclc.png);
+  @include image();
+}
+
+.image-url {
+  background:url(../resources/img/chain.png);
+  @include image();
+}
+
+
+
 
 
 .nopadding .x-toolbar {

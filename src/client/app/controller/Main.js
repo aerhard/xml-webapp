@@ -20,6 +20,9 @@ Ext.define('Zen.controller.Main', {
         });
 
         this.control({
+            'sidepanel button'       : {
+                click: this.onSearchMenuItemClick
+            },
             'plustab menuitem'       : {
                 click: this.onSearchMenuItemClick
             },

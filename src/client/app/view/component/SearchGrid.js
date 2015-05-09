@@ -2,34 +2,19 @@
  * A grid component showing the results of a search and containing a search form.
  */
 Ext.define('Zen.view.component.SearchGrid', {
-    extend: 'Zen.view.component.AbstractGrid',
-    alias : 'widget.searchgrid',
+    extend: 'Zen.view.component.AbstractGrid', alias: 'widget.searchgrid',
 
     requires: ['Ext.grid.feature.Grouping', 'Ext.grid.plugin.BufferedRenderer'],
 
-    features  : [],
-    groupField: null,
+    features: [], groupField: null,
 
-    actionConfig: [
-        {
-            c      : 'transcr',
-            tooltip: 'Übertragung',
-            icon   : 'zencon-file-text-o',
-            event  : 'opendetailtab'
-        },
-        {
-            c      : 'facsimile',
-            tooltip: 'Bild',
-            icon   : 'zencon-file-photo-o',
-            event  : 'opendetailtab'
-        },
-        {
-            c      : 'edition',
-            tooltip: 'PDF',
-            icon   : 'zencon-file-pdf',
-            event  : 'showfirstpdf'
-        }
-    ],
+    actionConfig: [{
+        c: 'transcr', tooltip: '&Uuml;bertragung', icon: 'zencon-file-text-o', event: 'opendetailtab'
+    }, {
+        c: 'facsimile', tooltip: 'Bild', icon: 'zencon-file-photo-o', event: 'opendetailtab'
+    }, {
+        c: 'edition', tooltip: 'PDF', icon: 'zencon-file-pdf', event: 'showfirstpdf'
+    }],
 
     initComponent: function () {
         var me = this;
@@ -54,8 +39,7 @@ Ext.define('Zen.view.component.SearchGrid', {
             cfg = eventTypeMenuConfig[i];
             if (cfg.type) {
                 eventTypesByName[cfg.type] = {
-                    text   : cfg.text,
-                    colIcon: cfg.colIcon
+                    text: cfg.text, colIcon: cfg.colIcon
                 };
             }
         }
@@ -64,8 +48,7 @@ Ext.define('Zen.view.component.SearchGrid', {
 
     getFeatures: function () {
         return [Ext.create('Ext.grid.feature.Grouping', {
-            collapsible   : false,
-            groupHeaderTpl: ['{name:this.formatName}', {
+            collapsible: false, groupHeaderTpl: ['{name:this.formatName}', {
                 formatName: function (name) {
                     return (name) ? name.substring(10) : '';
                 }
@@ -74,40 +57,33 @@ Ext.define('Zen.view.component.SearchGrid', {
     },
 
     getPluginConfig: function () {
-        return [
-            {
-                ptype             : 'bufferedrenderer',
-                pluginId          : 'bufferedrenderer',
-                variableRowHeight : true,
-                numFromEdge       : 8,
-                trailingBufferZone: 30,
-                leadingBufferZone : 40,
-                synchronousRender : true,
-                scrollToLoadBuffer: 200
-            }
-        ];
+        return [{
+            ptype             : 'bufferedrenderer',
+            pluginId          : 'bufferedrenderer',
+            variableRowHeight : true,
+            numFromEdge       : 8,
+            trailingBufferZone: 30,
+            leadingBufferZone : 40,
+            synchronousRender : true,
+            scrollToLoadBuffer: 200
+        }];
     },
 
     getViewConfig: function () {
         return {
-            plugins   : {
+            plugins: {
                 ptype     : 'gridviewdragdrop',
                 dragText  : 'Zur Zwischenablage verschieben',
                 enableDrop: false,
                 ddGroup   : 'selDD'
-            },
-            copy      : true,
-            stripeRows: false,
-            trackOver : false
+            }, copy: true, stripeRows: false, trackOver: false
         };
     },
 
     getStoreConfig: function () {
         var me = this;
         return Ext.create('Zen.store.component.SearchGrid', {
-            groupField: me.groupField,
-            pageSize  : +me.pageSize,
-            listeners : {
+            groupField: me.groupField, pageSize: +me.pageSize, listeners: {
                 'metachange': function (store, meta) {
                     me.reconfigure(store, me.getColumnConfig(meta.fields));
                 }
@@ -117,11 +93,7 @@ Ext.define('Zen.view.component.SearchGrid', {
 
     colType: function (unused1, unused2, scope) {
         return {
-            menuDisabled: true,
-            header      : 'Typ',
-            dataIndex   : 'type',
-            width       : 36,
-            renderer    : function (value) {
+            menuDisabled: true, header: 'Typ', dataIndex: 'type', width: 36, renderer: function (value) {
                 var data, text, colIcon;
                 if (!value) {
                     return '&nbsp;';
@@ -138,19 +110,40 @@ Ext.define('Zen.view.component.SearchGrid', {
         };
     },
 
+    colStatus: function (unused1, unused2, scope) {
+
+        return {
+            menuDisabled: true, header: '', dataIndex: 'status', width: 36, renderer: function (value) {
+                var data, text, colIcon;
+                var intStatusMap = {
+                    3: 'approved', 4: 'candidate', 5: 'proposed'
+                };
+                if (!value) {
+                    return '&nbsp;';
+                }
+                var cls = intStatusMap[value];
+                if (cls) {
+                    return '<span class="badge-status nopointer ' + cls + '" ' +
+                           'data-qtip="Status des Dokuments">&nbsp;</span>';
+                }
+                //data = scope.eventTypesByName[value];
+                //colIcon = data.colIcon;
+                //if (colIcon) {
+                //    text = data.text || '';
+                //    return '<span class="' + colIcon + '" data-qtip="' + text + '"/>';
+                //    //          return '<img data-qtip="' + text + '" src="resources/img/' + colIcon + '" height="15"/>';
+                //}
+                return '&nbsp;';
+            }
+        };
+    },
+
     getColumnConfig: function (fields) {
         var me = this, fieldNames = [], result = [], actions, i, j, columnConfig;
-        columnConfig = [
-            ['place', 'Ort', me.colSmall],
-            ['type', 'Typ', me.colType],
-            ['name_o', 'Name', me.colDefault],
-            ['creator_o', 'Verfasser', me.colDefault],
-            ['addressee_o', 'Empfänger', me.colDefault],
-            ['prof', 'Beruf / Strauss-Bezug', me.colDefault],
-            ['desc_o', 'Beschreibung', me.colDefault],
-            ['title', 'Titel', me.colDefault],
-            ['rel_o', 'Thema', me.colSmall]
-        ];
+        columnConfig = [['place', 'Ort', me.colSmall], ['type', 'Typ', me.colType], ['name_o', 'Name', me.colDefault],
+            ['creator_o', 'Verfasser', me.colDefault], ['addressee_o', 'Empf&auml;nger', me.colDefault],
+            ['prof', 'Beruf / Strauss-Bezug', me.colDefault], ['desc_o', 'Beschreibung', me.colDefault],
+            ['title', 'Titel', me.colDefault], ['rel_o', 'Thema', me.colSmall], ['status', 'Status', me.colStatus]];
 
         for (i = 0, j = fields.length; i < j; i += 1) {
             fieldNames.push(fields[i].name);
@@ -170,7 +163,7 @@ Ext.define('Zen.view.component.SearchGrid', {
         if (actions.length > 0) {
             result.push({
                 xtype       : 'glyphiconactioncolumn',
-                header      : 'Verfügbar',
+                header      : 'Verf&uuml;gbar',
                 menuDisabled: true,
                 hideable    : false,
                 width       : 80,
@@ -230,16 +223,14 @@ Ext.define('Zen.view.component.SearchGrid', {
     createMainSearchBar: function () {
         var me = this, i, searchBarItems, emptyText, scopeArray;
 
-        searchBarItems = [
-            {
-                xtype  : 'button',
-                text   : '+',
-                tooltip: 'Weitere Suchfelder für eine spezifischere Suche hinzufügen',
-                handler: function () {
-                    me.fireEvent('addsearchfield', me);
-                }
+        searchBarItems = [{
+            xtype  : 'button',
+            text   : '+',
+            tooltip: 'Weitere Suchfelder f&uuml;r eine spezifischere Suche hinzuf&uuml;gen',
+            handler: function () {
+                me.fireEvent('addsearchfield', me);
             }
-        ];
+        }];
 
         for (i = 0; i < this.searchFields.length; i += 1) {
             emptyText = (this.searchFields[i] === 'fulltext') ? 'Suchbegriffe' : 'Datum / Zeitraum';
@@ -255,28 +246,21 @@ Ext.define('Zen.view.component.SearchGrid', {
         }
 
         if (me.cat === 'event') {
-            scopeArray = [
-                {
-                    text       : 'Alle auswählen',
-                    xtype      : 'menuitem',
-                    hideOnClick: false,
-                    handler    : me.toggleScopeItems,
-                    scope      : me
-                },
-                {
-                    xtype: 'menuseparator'
-                }
-            ].concat(me.eventTypeMenuConfig);
+            scopeArray = [{
+                text       : 'Alle ausw&auml;hlen',
+                xtype      : 'menuitem',
+                hideOnClick: false,
+                handler    : me.toggleScopeItems,
+                scope      : me
+            }, {
+                xtype: 'menuseparator'
+            }].concat(me.eventTypeMenuConfig);
 
             searchBarItems.push({
-                text  : 'Spektrum',
-                itemId: 'searchScope',
-                menu  : {
+                text: 'Spektrum', itemId: 'searchScope', menu: {
                     defaults: {
-                        xtype  : 'menucheckitem',
-                        checked: 'true'
-                    },
-                    items   : scopeArray
+                        xtype: 'menucheckitem', checked: 'true'
+                    }, items: scopeArray
                 }
             });
         }
@@ -285,11 +269,8 @@ Ext.define('Zen.view.component.SearchGrid', {
         // in ExtJS 4.2.1 the controller can't listen to their events directly
         // when the buttons are only visible in the collapse menu.
         searchBarItems.push({
-            xtype  : 'button',
-            glyph : '58885@iconfont',
-//            text   : '<span class="zencon-search"/>',
-            tooltip: 'Suchen',
-            handler: function () {
+            xtype  : 'button', glyph: '58885@iconfont', //            text   : '<span class="zencon-search"/>',
+            tooltip: 'Suchen', handler: function () {
                 me.fireEvent('searchbtnclick', this);
             }
         });

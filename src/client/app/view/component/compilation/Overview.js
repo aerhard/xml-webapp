@@ -5,7 +5,7 @@ Ext.define('Zen.view.component.compilation.Overview', {
     extend: 'Ext.grid.Panel',
     alias : 'widget.compilation-overview',
 
-    title      : 'Übersicht',
+    title      : '&Uuml;bersicht',
     hideHeaders: true,
     selType    : 'rowmodel',
 

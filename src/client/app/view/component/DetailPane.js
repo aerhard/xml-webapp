@@ -107,11 +107,10 @@ Ext.define('Zen.view.component.DetailPane', {
     },
 
     createDockedItems: function () {
-        var me = this, idTemplate = new Ext.XTemplate('<div class="docinfo"><tpl if="rsqv[0] !==\'\'"><tpl for="rsqv">' +
-                                                      '<a href="http://rsqv.de/{.}" target="_blank">&#x00A0;' +
-                                                      '<img src="resources/img/rsqv.gif"' +
-                                                      ' data-qtip="Datensatz {.} im Richard-Strauss-Quellenverzeichnis (RSQV)"' +
-                                                      ' class="rsqv-image"/></a>' +
+        var me = this, idTemplate = new Ext.XTemplate('<div class="docinfo"><tpl if="identifiers !== null"><tpl for="identifiers">' +
+                                                      '<a href="{url}" title="{url}" class="{class}" target="_blank">&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;' +
+                                                      //'<img src="resources/img/rsqv.gif"' +
+                                                      '</a>' +
                                                       '</tpl></tpl> <span class="badge-plain" ' +
                                                       'data-qtip="Identifikationsnummer des Dokuments">{key}</span>&#8195;' +
                                                       '<tpl if="rev !== null">Revision {rev}</tpl>' +
@@ -217,7 +216,7 @@ Ext.define('Zen.view.component.DetailPane', {
         var me = this;
         return [
             {
-                text: 'Rechts öffnen',
+                text: 'Rechts &ouml;ffnen',
                 ui  : 'default',
                 menu: [
                     {
@@ -317,7 +316,9 @@ Ext.define('Zen.view.component.DetailPane', {
 
     reloadModel: function () {
         var me = this;
+        var oldKey = me.oldKey;
         me.loadModel(me.key, me.rev);
+        me.oldKey = oldKey;
     },
 
     constructQuery: function (key) {

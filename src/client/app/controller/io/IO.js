@@ -86,7 +86,7 @@ Ext.define('Zen.controller.io.IO', {
                 url     : Zen.Global.getPath('permissions') + key + '&group=' + group,
                 callback: function (msg) {
                     Zen.app.fireEvent('resourcechanged', key);
-                    Zen.app.fireEvent('shortmessage', 'Geändert', msg);
+                    Zen.app.fireEvent('shortmessage', 'Ge&auml;ndert', msg);
                 }
             });
         }
@@ -99,7 +99,7 @@ Ext.define('Zen.controller.io.IO', {
                 url     : Zen.Global.getPath('status') + key + '&status=' + status,
                 callback: function (msg) {
                     Zen.app.fireEvent('resourcechanged', key);
-                    Zen.app.fireEvent('shortmessage', 'Geändert', msg);
+                    Zen.app.fireEvent('shortmessage', 'Ge&auml;ndert', msg);
                 }
             });
         }
@@ -130,11 +130,11 @@ Ext.define('Zen.controller.io.IO', {
     moveToBin: function (key) {
         var keyDesc = '"' + this.getKeyDesc(key) + '" (' + key + ')';
         if (typeof key !== 'string') {
-            Ext.MessageBox.alert('Fehler', 'Kein ausgewähltes Dokument gefunden.');
+            Ext.MessageBox.alert('Fehler', 'Kein ausgew&auml;hltes Dokument gefunden.');
         } else {
-            Ext.MessageBox.confirm('Löschen', 'Soll das folgende Dokument in den Papierkorb verschoben werden? <br/><br/><b>' +
+            Ext.MessageBox.confirm('L&ouml;schen', 'Soll das folgende Dokument in den Papierkorb verschoben werden? <br/><br/><b>' +
                                               keyDesc +
-                                              '</b><br/><br/>(Vor dem Löschen sicherstellen, dass alle enthaltenen Informationen anderweitig verfügbar sind!)', function (btn) {
+                                              '</b><br/><br/>(Vor dem L&ouml;schen sicherstellen, dass alle enthaltenen Informationen anderweitig verf&uuml;gbar sind!)', function (btn) {
                 if (btn === 'yes') {
                     Zen.Global.jsonRequest({
                         url     : Zen.Global.getPath('remove') + key,
@@ -150,7 +150,7 @@ Ext.define('Zen.controller.io.IO', {
 
     restore: function (key) {
         if (typeof key !== 'string') {
-            Ext.MessageBox.alert('Fehler', 'Kein ausgewähltes Dokument gefunden.');
+            Ext.MessageBox.alert('Fehler', 'Kein ausgew&auml;hltes Dokument gefunden.');
         } else {
             Ext.MessageBox.confirm('Wiederherstellen', 'Soll das Dokument wiederhergestellt werden?', function (btn) {
                 if (btn === 'yes') {

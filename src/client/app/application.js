@@ -52,7 +52,7 @@ Ext.define('Zen.Application', {
      */
     checkBrowserCompatibility: function () {
         if (Ext.isIE9m) {
-            Ext.MessageBox.alert('Hinweis', 'Als aktueller Browser wurde eine ältere Version des Internet Explorer festgestellt, welche einige Bestandteile der Web-Anwendung nicht korrekt darstellt. ' +
+            Ext.MessageBox.alert('Hinweis', 'Als aktueller Browser wurde eine &auml;ltere Version des Internet Explorer festgestellt, welche einige Bestandteile der Web-Anwendung nicht korrekt darstellt. ' +
                                             'Zur Nutzung der vorliegenden Web-Anwendung empfehlen wir eine aktuelle Version des Internet Explorer oder einen anderen modernen Browser wie Firefox oder Chrome.');
         }
         if (Ext.isIE || this.isIE11()) {

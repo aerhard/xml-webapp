@@ -57,7 +57,7 @@ Ext.define('Zen.view.component.compilation.Tree', {
                     {
                         componentCls: 'zencon-remove',
                         action      : 'removecompilation',
-                        tooltip     : 'Löschen',
+                        tooltip     : 'L&ouml;schen',
                         disabled    : true
                     }
                 ]

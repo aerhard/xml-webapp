@@ -15,7 +15,7 @@ Ext.define('Zen.store.component.DetailPane', {
             exception: function (unused_proxy, response, operation) {
                 if (operation) {
                     Ext.MessageBox.alert('Hinweis', 'Suchanfrage konnte nicht bearbeitet werden. \n' +
-                                                    'Bitte Inhalt der Suchfelder auf Stimmigkeit prüfen.');
+                                                    'Bitte Inhalt der Suchfelder auf Stimmigkeit pr&uuml;fen.');
                 } else {
                     Ext.MessageBox.alert('Fehler', response.toString());
                 }

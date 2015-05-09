@@ -30,7 +30,7 @@ Ext.define('Zen.view.component.bin.SearchGrid', {
         return [
             {
                 menuDisabled: true,
-                header      : 'Schlüssel',
+                header      : 'Schl&uuml;ssel',
                 dataIndex   : 'key',
                 width       : 100
             },

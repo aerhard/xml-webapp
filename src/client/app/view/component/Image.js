@@ -121,7 +121,7 @@ Ext.define('Zen.view.component.Image', {
                 xtype  : 'button',
                 text   : '<span class="zencon-chevron-right"></span>',
                 action : 'nextpage',
-                tooltip: 'nächste Seite'
+                tooltip: 'n&auml;chste Seite'
             }, '->']);
         }
     },

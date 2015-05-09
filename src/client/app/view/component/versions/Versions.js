@@ -48,7 +48,7 @@ Ext.define('Zen.view.component.versions.Versions', {
             viewConfig   : {
                 preserveScrollOnRefresh: true,
                 deferEmptyText         : false,
-                emptyText              : "Keine früheren Fassungen gefunden."
+                emptyText              : "Keine fr&uuml;heren Fassungen gefunden."
             },
             split        : true,
             height       : '100%',

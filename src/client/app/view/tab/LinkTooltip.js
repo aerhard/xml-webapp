@@ -25,6 +25,7 @@ Ext.define('Zen.view.tab.LinkTooltip', {
         },
         beforeshow: function (tip) {
             var el = tip.triggerElement;
+            //var keyEl = $(el).closest(':data(key)');
             if (el.hasAttribute('data-tiptext')) {
                 tip.update(el.getAttribute('data-tiptext'));
             } else {

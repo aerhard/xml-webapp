@@ -11,6 +11,8 @@ Ext.define('Zen.view.tab.MainTabPanel', {
     componentCls: 'main-tabpanel',
     bodyCls     : 'main-tabpanel-body',
 
+    padding : '8px 8px 8px 8px',
+
     /**
      * The maximum width of the tabs.
      */
