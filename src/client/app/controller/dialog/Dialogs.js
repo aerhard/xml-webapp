@@ -8,7 +8,7 @@ Ext.define('Zen.controller.dialog.Dialogs', {
 
         this.application.on({
             openlistdialog  : this.openListDialog,
-            resourceRestored: this.onResourceRestored,
+            resourcerestored: this.onResourceRestored,
             scope           : this
         });
 
@@ -66,7 +66,7 @@ Ext.define('Zen.controller.dialog.Dialogs', {
             if (detailPane && detailPane.key === key) {
                 detailPane.destroy();
                 // set right view to (empty) initial config state
-                win.add(Ext.widget('detailpane', win.getRightConfig()));
+                win.add(Ext.widget('bin-detailpane', win.getRightConfig()));
             }
         }
     }

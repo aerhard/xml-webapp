@@ -6,5 +6,8 @@ build.properties
 /src/client/build
 /src/client/doc
 /src/client/resources/bower_components
+/src/server/main.js
 /src/exist-app
 /tmp
+/*.bat
+/node_modules

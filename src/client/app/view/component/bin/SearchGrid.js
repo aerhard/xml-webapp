@@ -60,7 +60,7 @@ Ext.define('Zen.view.component.bin.SearchGrid', {
                         xtype  : 'button',
                         action : 'restore',
                         tooltip: 'Wiederherstellen',
-                        //        iconCls : 'icon-restore',
+                                //iconCls : 'zencon-restore',
                         handler: function (grid, rowIndex) {
                             var key = grid.getStore().getAt(rowIndex).get('key');
                             Zen.app.fireEvent('restore', key);
@@ -80,7 +80,7 @@ Ext.define('Zen.view.component.bin.SearchGrid', {
                 tooltip: 'Neu laden',
                 text   : '<span class="zencon-refresh"></span>',
                 handler: function () {
-                    me.fireEvent('searchbtnclick', me);
+                    me.fireEvent('searchbtnclick', this);
                 }
             }
         ];

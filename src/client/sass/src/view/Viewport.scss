@@ -440,8 +440,10 @@ a:hover {
   @include image();
 }
 
-
-
+.image-slub {
+  background:url(../resources/img/slub.png);
+  @include image();
+}
 
 
 .nopadding .x-toolbar {
