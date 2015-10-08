@@ -112,7 +112,7 @@ Ext.define('Zen.view.component.DetailPane', {
                                                       //'<img src="resources/img/rsqv.gif"' +
                                                       '</a>' +
                                                       '</tpl></tpl> <span class="badge-plain" ' +
-                                                      'data-qtip="Identifikationsnummer des Dokuments">{key}</span>&#8195;' +
+                                                      'data-qtip="Identifikationsnummer des Dokuments"><a href="?id={key}" target="_blank" class="white">{key}</a></span>&#8195;' +
                                                       '<tpl if="rev !== null">Revision {rev}</tpl>' +
                                                       '<tpl if="rev === null"><div class="docdate">{[this.parseDate(values.date)]}</span></tpl>' +
                                                       '</div>', {
