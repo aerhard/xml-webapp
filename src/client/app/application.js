@@ -84,6 +84,13 @@ Ext.define('Zen.Application', {
         menu.setVisible(false);
     },
 
+    /**
+     * Adds a search or detail tab if the corresponding GET parameters have been provided.
+     *
+     * - cat=[category] opens a search tab
+     * - q=[query] searches for the provided string in the category
+     * - id=[identifier] opens a detail tab of the specified database record
+     */
     processGetParameters: function () {
         var params = Ext.urlDecode(location.search.substring(1));
         if (params.hasOwnProperty('cat')) {

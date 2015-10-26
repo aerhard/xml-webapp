@@ -1,6 +1,5 @@
 .idea
 build.properties
-node_modules
 /build
 /dist
 /src/client/bootstrap.*
